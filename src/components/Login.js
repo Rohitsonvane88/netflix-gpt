@@ -3,11 +3,10 @@ import Header from "./Header"
 import { checkValidation } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVTAR } from "../utils/constants";
 function Login() {
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMsg, setErrorMg] = useState(null);
@@ -31,11 +30,10 @@ function Login() {
 
                     updateProfile(auth.currentUser, {
                         displayName: name.current.value,
-                        photoURL: "https://i.pinimg.com/736x/55/1e/94/551e94ae8845df9d455f221c07421dcd.jpg"
+                        photoURL: USER_AVTAR
                     }).then((user) => {
                         const { uid, email, displayName, photoURL } = auth.currentUser;
                         dispatch(addUser({ uid, email, displayName, photoURL }))
-                        navigate('/browse')
                     }).catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
@@ -47,7 +45,6 @@ function Login() {
                     const errorMessage = error.message;
                     // ..
                     setErrorMg(errorCode + " - " + errorMessage)
-                    navigate('/')
 
                 });
         } else {
@@ -56,14 +53,12 @@ function Login() {
                     // Signed in `
                     const user = userCredential.user;
                     console.log(user);
-                    navigate('/browse')
                     // ...
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setErrorMg(errorCode + " - " + errorMessage)
-                    navigate('/')
                 });
         }
     }
