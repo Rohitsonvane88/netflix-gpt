@@ -58,7 +58,7 @@ function Header() {
                         SUPPORTED_LANGUAGES.map(e => <option className="" value={e.key}>{e.text}</option>)
                     }
                 </select>}
-                <button onClick={handleGPTSearchClick} className="px-8 py-2 mr-4 bg-red-700 opacity-80 hover:opacity-100 border-transparent rounded-md text-white">{gpt.showGPTSearch ? "Home" : "GPT Search"}</button>
+                <button onClick={handleGPTSearchClick} className="px-8 py-2 mr-4 bg-red-700 opacity-80 hover:opacity-100 border-transparent rounded-md text-white">{gpt.showGPTSearch ? "Home" : "AI Search"}</button>
                 <img className="h-10 w-10" src={user?.photoURL} alt="" />
                 <el-dropdown class="inline-block">
                     <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-white">
