@@ -16,7 +16,7 @@ const useMovieTrailerVideo = (movieId) => {
             dispatch(addTrailerVideo(youtubekey))
         }
         getMovieVideos()
-    }, [])
+    }, [dispatch, movieId])
 }
 
 export default useMovieTrailerVideo
