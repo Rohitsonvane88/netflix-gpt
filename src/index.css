@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 
-/* html,
+html,
 body {
-    height: 100vh;
-} */
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
