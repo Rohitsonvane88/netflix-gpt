@@ -8,11 +8,15 @@ const GPTSearchPage = () => {
         <div>
             <div className="absolute w-screen h-screen">
                 <img
-                    className="h-full w-full"
+                    className="h-screen object-cover w-full"
                     src={BACKGROUND_IMAGE} alt="" />
             </div>
-            <GPTSearchBar />
-            <GPTMovieSuggetions />
+            <div className='pt-[100px] md:pt-[unset]'>
+                <GPTSearchBar />
+            </div>
+            <div>
+                <GPTMovieSuggetions />
+            </div>
         </div>
     )
 }

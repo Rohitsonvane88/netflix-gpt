@@ -1,10 +1,11 @@
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { API_OPTIONS } from "../utils/constants"
 import { addTrailerVideo } from "../utils/movieSlice"
 
 const useMovieTrailerVideo = (movieId) => {
     const dispatch = useDispatch()
+    const trailerVideo = useSelector(state => state.movies.trailerVideo)
 
     useEffect(() => {
         const getMovieVideos = async () => {
@@ -15,8 +16,10 @@ const useMovieTrailerVideo = (movieId) => {
             const youtubekey = trailerVideos.length ? trailerVideos[0].key : json.results[0].key
             dispatch(addTrailerVideo(youtubekey))
         }
-        getMovieVideos()
-    }, [dispatch, movieId])
+        if (!trailerVideo) {
+            getMovieVideos()
+        }
+    }, [dispatch, movieId, trailerVideo])
 }
 
 export default useMovieTrailerVideo

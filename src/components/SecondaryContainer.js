@@ -5,7 +5,7 @@ function SecondaryContainer() {
     const movies = useSelector(state => state.movies)
 
     return (
-        <div className="flex flex-col mt-[-150px] relative z-10">
+        <div className="flex flex-col mt-0 md:mt-[-150px] relative z-10">
             <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
             <MovieList title={"Popular"} movies={movies.popularMovies} />
             <MovieList title={"TopRated"} movies={movies.topRatedMovies} />

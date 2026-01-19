@@ -45,7 +45,7 @@ function Header() {
     }
 
     return (
-        <div className="z-50 w-full absolute px-8 py-2 bg-gradient-to-b from-black flex items-center justify-between">
+        <div className="z-50 w-full absolute px-2 md:px-8 py-2 bg-gradient-to-b from-black flex items-center justify-between flex-col md:flex-row">
             <img
                 className="w-44"
                 src={LOGO} alt="logo"
@@ -53,12 +53,12 @@ function Header() {
             {user && <div className="flex items-center text-white ">
                 {/* <img className="h-10 w-10" src="https://i.pinimg.com/736x/ec/74/7a/ec747a688a5d6232663caaf114bad1c3.jpg" alt="" /> */}
                 {/* <label for="language" className="mr-4">Language: </label> */}
-                {gpt.showGPTSearch && <select className="p-2 bg-gray-700 rounded-md mr-4" name="language" id="language" onChange={handleLanguageChange}>
+                {gpt.showGPTSearch && <select className="p-2 bg-gray-700 rounded-md mr-2 md:mr-4" name="language" id="language" onChange={handleLanguageChange}>
                     {
                         SUPPORTED_LANGUAGES.map(e => <option className="" value={e.key}>{e.text}</option>)
                     }
                 </select>}
-                <button onClick={handleGPTSearchClick} className="px-8 py-2 mr-4 bg-red-700 opacity-80 hover:opacity-100 border-transparent rounded-md text-white">{gpt.showGPTSearch ? "Home" : "AI Search"}</button>
+                <button onClick={handleGPTSearchClick} className="px-8 py-2 mr-2 md:mr-4 bg-red-700 opacity-80 hover:opacity-100 border-transparent rounded-md text-white">{gpt.showGPTSearch ? "Home" : "AI Search"}</button>
                 <img className="h-10 w-10" src={user?.photoURL} alt="" />
                 <el-dropdown class="inline-block">
                     <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent px-3 py-2 text-sm font-semibold text-white">
